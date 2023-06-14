@@ -9,7 +9,7 @@ export function CompNote() {
         <TouchableOpacity 
         activeOpacity={0.7} 
         onPress={() => navigate('noted')}
-        className="w-full h-50 flex-column items-center justify-center bg-gray-100 border rounded-2xl mt-6">
+        className="w-full h-50 flex-column items-center justify-center bg-zinc-800 border rounded-2xl mt-6">
             <View className="w-full flex-row border-b-4 border-background mt-2 pb-2 mx-4 justify-between">
                 <Text className="items-center justify-center px-4 font-medium text-base text-white ">
                     Cena linda

@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export function HeaderBook() {
   const { goBack } = useNavigation()
+  const { navigate } = useNavigation()
 
   return (
     <View className="w-full flex-row items-top justify-start px-8 ">
@@ -23,7 +24,10 @@ export function HeaderBook() {
           />
         </TouchableOpacity>
 
-          <TouchableOpacity className="w-16 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2">
+          <TouchableOpacity className="w-16 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+            activeOpacity={0.7}
+            onPress={() => navigate('editbook')}
+          >
             <MaterialIcons name="edit" size={28} color={colors.zinc[100]} />
           </TouchableOpacity>
 
@@ -42,7 +46,7 @@ export function HeaderBook() {
       <View className="inline-block">
 
         <TouchableOpacity
-          className="w-28 h-40 items-center justify-center bg-gray-300 rounded-lg m-2"
+          className="w-28 h-40 items-center justify-center bg-gray-600 rounded-lg m-2"
           activeOpacity={1}
         >
           <Text className="font-semibold text-base text-white text-center m-1">

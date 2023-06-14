@@ -7,7 +7,7 @@ export function BookButton() {
 
   return (
     <TouchableOpacity
-          className="w-28 h-40 items-center justify-center bg-gray-300 rounded-lg m-2"
+          className="w-28 h-40 items-center justify-center bg-gray-700 rounded-lg m-2"
           activeOpacity={0.7}
           onPress={() => navigate('book')}
         >

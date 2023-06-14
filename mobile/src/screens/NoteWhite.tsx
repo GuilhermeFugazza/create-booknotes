@@ -14,26 +14,27 @@ export function NoteWhite() {
     <View className='flex-1 bg-white pt-16'>
       <View className="w-full flex-row items-top justify-start pl-8"> 
 
-<BackButton />
+        <BackButton />
 
-<Logo />
+        <Logo />
 
-<View className="pl-14">
-  <TouchableOpacity className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2">
-    <MaterialIcons name="edit" size={28} color={colors.zinc[100]} />
-  </TouchableOpacity>
+        <View className="pl-14">
+          <TouchableOpacity className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+           onPress={() => navigate('editnote')}>
+            <MaterialIcons name="edit" size={28} color="black" />
+          </TouchableOpacity>
 
-  <TouchableOpacity 
-    className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
-    onPress={() => navigate('notew')}>
-    <Feather name="sun" size={24} color="black" />
-  </TouchableOpacity>
-</View>
-</View>
+          <TouchableOpacity 
+            className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+            onPress={() => navigate('noted')}>
+            <Feather name="sun" size={24} color={colors.black} />
+          </TouchableOpacity>
+        </View>
+      </View>
 
 
       <View className="flex-row">
-        <Text className="w-1/2 font-medium text-base text-white mx-8 mb-2 text-left">
+        <Text className="w-1/2 font-medium text-black text-base text-background mx-8 mb-2 text-left">
           Cena linda
         </Text>
         <Text className="w-1/2 font-bold text-base text-violet-500 mx-8 mb-2 text-left">
@@ -46,7 +47,7 @@ export function NoteWhite() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 50 }}
       >
-        <Text className="font-semibold text-base text-white m-8 text-justify ">
+        <Text className="font-semibold text-base text-background m-8 text-justify ">
                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
             </Text>
       </ScrollView>

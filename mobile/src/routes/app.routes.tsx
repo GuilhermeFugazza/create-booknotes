@@ -10,6 +10,10 @@ import { Folders } from '../screens/Folders';
 import { Folder } from '../screens/Folder';
 import { NoteDark } from '../screens/NoteDark';
 import { NoteWhite } from '../screens/NoteWhite';
+import { CreateNotes } from '../screens/CreateNotes';
+import { EditBook } from '../screens/EditBook';
+import { EditNote } from '../screens/EditNote';
+
 
 export function AppRoutes() {
   return (
@@ -52,6 +56,21 @@ export function AppRoutes() {
       <Screen
         name="notew"
         component={NoteWhite}
+      />
+
+      <Screen
+        name="createnotes"
+        component={CreateNotes}
+      />
+      
+      <Screen
+        name="editbook"
+        component={EditBook}
+      />
+      
+      <Screen
+        name="editnote"
+        component={EditNote}
       />
     </Navigator>
   )

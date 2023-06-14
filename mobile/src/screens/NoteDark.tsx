@@ -14,22 +14,24 @@ export function NoteDark() {
     <View className='flex-1 bg-background pt-16'>
       <View className="w-full flex-row items-top justify-start pl-8"> 
 
-<BackButton />
+        <BackButton />
 
-<Logo />
+        <Logo />
 
-<View className="pl-14">
-  <TouchableOpacity className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2">
-    <MaterialIcons name="edit" size={28} color={colors.zinc[100]} />
-  </TouchableOpacity>
+        <View className="pl-14">
+          <TouchableOpacity 
+            className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+            onPress={() => navigate('editnote')}>
+            <MaterialIcons name="edit" size={28} color="white" />
+          </TouchableOpacity>
 
-  <TouchableOpacity 
-    className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
-    onPress={() => navigate('notew')}>
-    <Feather name="sun" size={24} color="black" />
-  </TouchableOpacity>
-</View>
-</View>
+          <TouchableOpacity 
+            className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+            onPress={() => navigate('notew')}>
+            <Feather name="sun" size={24} color="white" />
+          </TouchableOpacity>
+        </View>
+      </View>
 
 
       <View className="flex-row">
