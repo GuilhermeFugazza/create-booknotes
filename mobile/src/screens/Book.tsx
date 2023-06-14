@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Alert, ScrollView, Text, View, TouchableOpacity } from "react-native";
 import { HeaderBook } from "../components/HeaderBook";
-import { Note } from "../components/Note";
+import { CompNote } from "../components/CompNote";
 import { useNavigation } from '@react-navigation/native';
 
 export function Booknotes() {
@@ -16,10 +16,10 @@ export function Booknotes() {
       >
         <HeaderBook />
         <View className="px-8">
-          <Note />
-          <Note />
-          <Note />
-          <Note />
+          <CompNote />
+          <CompNote />
+          <CompNote />
+          <CompNote />
 
           <TouchableOpacity
             className="w-1/2 h-14 flex-row items-center justify-center bg-green-600 rounded-md mt-6"

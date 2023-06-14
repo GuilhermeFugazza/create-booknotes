@@ -22,8 +22,6 @@ export function Home() {
         </View>
         <View className='flex-row flex-wrap px-1 justify-start'>
 
-          <TouchableOpacity onPress={() => navigate('new')} />
-
           <BookButton />
           <BookButton />
           <BookButton />

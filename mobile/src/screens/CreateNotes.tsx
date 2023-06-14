@@ -2,7 +2,7 @@ import { Alert, ScrollView, Text, View, TouchableOpacity } from "react-native";
 import { BackButton } from "../components/BackButton";
 import { useNavigation } from '@react-navigation/native';
 
-export function Notes() {
+export function CreateNotes() {
 
     const { navigate } = useNavigation()
 
