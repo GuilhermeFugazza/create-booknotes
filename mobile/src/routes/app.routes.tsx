@@ -13,6 +13,7 @@ import { NoteWhite } from '../screens/NoteWhite';
 import { CreateNotes } from '../screens/CreateNotes';
 import { EditBook } from '../screens/EditBook';
 import { EditNote } from '../screens/EditNote';
+import { CreateFolders } from '../screens/CreateFolders';
 
 
 export function AppRoutes() {
@@ -71,6 +72,11 @@ export function AppRoutes() {
       <Screen
         name="editnote"
         component={EditNote}
+      />
+
+      <Screen
+        name="createfolders"
+        component={CreateFolders}
       />
     </Navigator>
   )

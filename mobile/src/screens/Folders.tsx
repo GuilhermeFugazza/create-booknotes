@@ -28,7 +28,16 @@ export function Folders() {
 
         </View>
       </ScrollView>
-      <OptBar />
+      <TouchableOpacity
+            className="w-1/2 h-14 flex-row items-center justify-center bg-background rounded-2xl mt-4 border-2 border-violet-600 "
+            activeOpacity={0.7}
+            onPress={() => navigate('createfolders')}
+          >
+
+            <Text className="font-semibold text-base text-white mx-2">
+              Nova Pasta
+            </Text>
+          </TouchableOpacity>
     </View>
   )
 } 
