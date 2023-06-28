@@ -2,6 +2,7 @@ import { View, TouchableOpacity, Text } from "react-native";
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import colors from "tailwindcss/colors";
 import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from '@expo/vector-icons';
 
 export function HeaderBook() {
   const { goBack } = useNavigation()
@@ -13,27 +14,34 @@ export function HeaderBook() {
       <View className="w-52">
         <View className="flex-row items-center bg-background py-2">
 
-        <TouchableOpacity className="pr-32"
-          activeOpacity={0.7}
-          onPress={goBack}
-        >
-          <Ionicons
-            name="ios-return-up-back-outline"
-            size={32}
-            color={colors.violet[500]}
-          />
-        </TouchableOpacity>
-
-          <TouchableOpacity className="w-16 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+          <TouchableOpacity className="pr-32"
             activeOpacity={0.7}
-            onPress={() => navigate('editbook')}
+            onPress={goBack}
           >
-            <MaterialIcons name="edit" size={28} color={colors.zinc[100]} />
+            <Ionicons
+              name="ios-return-up-back-outline"
+              size={32}
+              color={colors.violet[500]}
+            />
           </TouchableOpacity>
+          <View>
+            <TouchableOpacity className="w-16 h-8 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+              activeOpacity={0.7}
+              onPress={() => navigate('editbook')}
+            >
+              <MaterialIcons name="edit" size={28} color={colors.zinc[100]} />
+            </TouchableOpacity>
 
+            <TouchableOpacity className="w-16 h-8 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+              activeOpacity={0.7}
+              onPress={() => navigate('editbook')}
+            >
+              <AntDesign name="addfolder" size={24} color="black" />
+            </TouchableOpacity>
+          </View>
         </View>
 
-        <Text className="font-semibold border-b py-2 border-violet-600 text-base text-white text-center">
+        <Text className="font-semibold border-b py-1 border-violet-600 text-base text-white text-center">
           É assim que acaba
         </Text>
 

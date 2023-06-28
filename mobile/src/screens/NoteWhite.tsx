@@ -3,7 +3,7 @@ import { Alert, ScrollView, Text, View, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { BackButton } from '../components/BackButton';
 import colors from "tailwindcss/colors";
-import Logo from '../assets/booknoteswhite.svg';
+import Logo from '../assets/booklogoblack.svg';
 import { Feather , MaterialIcons } from '@expo/vector-icons';
 
 export function NoteWhite() {
@@ -11,7 +11,7 @@ export function NoteWhite() {
   const { navigate } = useNavigation()
 
   return (
-    <View className='flex-1 bg-white pt-16'>
+    <View className='flex-1 bg-yellow-50 pt-16'>
       <View className="w-full flex-row items-top justify-start pl-8"> 
 
         <BackButton />
@@ -19,9 +19,10 @@ export function NoteWhite() {
         <Logo />
 
         <View className="pl-14">
-          <TouchableOpacity className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
-           onPress={() => navigate('editnote')}>
-            <MaterialIcons name="edit" size={28} color="black" />
+          <TouchableOpacity 
+            className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
+            onPress={() => navigate('editnote')}>
+            <MaterialIcons name="edit" size={28} color={colors.black} />
           </TouchableOpacity>
 
           <TouchableOpacity 
