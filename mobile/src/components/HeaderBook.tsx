@@ -36,7 +36,7 @@ export function HeaderBook() {
               activeOpacity={0.7}
               onPress={() => navigate('editbook')}
             >
-              <AntDesign name="addfolder" size={24} color="black" />
+              <AntDesign name="addfolder" size={24} color={colors.zinc[100]} />
             </TouchableOpacity>
           </View>
         </View>
