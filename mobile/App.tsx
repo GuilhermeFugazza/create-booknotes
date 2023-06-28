@@ -14,6 +14,7 @@ import {
 
 import { Loading } from './src/components/Loading';
 import { Routes } from './src/routes';
+import { ColorPicker } from 'react-native-color-picker'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -28,6 +29,13 @@ export default function App() {
       <Loading />
     );
   }
+
+  const App = () => (
+    <ColorPicker
+      onColorSelected={color => alert(`Color selected: ${color}`)}
+      style={{ flex: 1 }}
+    />
+  )
 
   return (
     <>
