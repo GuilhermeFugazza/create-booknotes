@@ -34,7 +34,7 @@ export function HeaderBook() {
 
             <TouchableOpacity className="w-16 h-8 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
               activeOpacity={0.7}
-              onPress={() => navigate('editbook')}
+              onPress={() => navigate('addbookinfolder')}
             >
               <AntDesign name="addfolder" size={24} color={colors.zinc[100]} />
             </TouchableOpacity>

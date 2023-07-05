@@ -14,6 +14,8 @@ import { CreateNotes } from '../screens/CreateNotes';
 import { EditBook } from '../screens/EditBook';
 import { EditNote } from '../screens/EditNote';
 import { CreateFolders } from '../screens/CreateFolders';
+import { EditFolder } from '../screens/EditFolder';
+import { AddBookInFolder } from '../screens/AddBookInFolder';
 
 
 export function AppRoutes() {
@@ -63,12 +65,12 @@ export function AppRoutes() {
         name="createnotes"
         component={CreateNotes}
       />
-      
+
       <Screen
         name="editbook"
         component={EditBook}
       />
-      
+
       <Screen
         name="editnote"
         component={EditNote}
@@ -77,6 +79,16 @@ export function AppRoutes() {
       <Screen
         name="createfolders"
         component={CreateFolders}
+      />
+
+      <Screen
+        name="editfolder"
+        component={EditFolder}
+      />
+
+      <Screen
+        name="addbookinfolder"
+        component={AddBookInFolder}
       />
     </Navigator>
   )

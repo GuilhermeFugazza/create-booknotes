@@ -27,7 +27,7 @@ export function CreateFolders() {
                 />
 
                 <TextInput
-                    className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-zinc-800 focus:border-violet-500"
+                    className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
                     placeholder="Escolha a cor da pasta"
                     placeholderTextColor={colors.zinc[400]}
                 />
