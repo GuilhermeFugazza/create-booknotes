@@ -10,6 +10,15 @@ export function FavBooks() {
   const [loading] = useState(true)
   const { navigate } = useNavigation()
 
+//  async function RemoveFromFavs () {
+//    try {
+//      Alert.alert('Novo livro adicionado', 'Livro adicionado com sucesso!');
+//    } catch (error) {
+//      console.log(error)
+//      Alert.alert('Ops', 'Não foi possível adicionar o livro')
+//    }
+//  }
+
   return (
     <View className='flex-1 bg-background pt-16'>
       <Header />
@@ -29,6 +38,7 @@ export function FavBooks() {
           <BookButton />
 
         </View>
+
       </ScrollView>
       <OptBar />
     </View>

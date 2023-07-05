@@ -14,9 +14,13 @@ import { CreateNotes } from '../screens/CreateNotes';
 import { EditBook } from '../screens/EditBook';
 import { EditNote } from '../screens/EditNote';
 import { CreateFolders } from '../screens/CreateFolders';
+<<<<<<< HEAD
 import { EditFolder } from '../screens/EditFolder';
 import { AddBookInFolder } from '../screens/AddBookInFolder';
 
+=======
+import { ColorPickerScreen } from '../screens/ColorPickerScreen';
+>>>>>>> 0e4f46b757a315255ced91f3f969036291fb7c9f
 
 export function AppRoutes() {
   return (
@@ -82,6 +86,7 @@ export function AppRoutes() {
       />
 
       <Screen
+<<<<<<< HEAD
         name="editfolder"
         component={EditFolder}
       />
@@ -90,6 +95,12 @@ export function AppRoutes() {
         name="addbookinfolder"
         component={AddBookInFolder}
       />
+=======
+        name="colorpickerscreen"
+        component={ColorPickerScreen}
+      />
+
+>>>>>>> 0e4f46b757a315255ced91f3f969036291fb7c9f
     </Navigator>
   )
 }
