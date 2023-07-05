@@ -14,7 +14,7 @@ import { CreateNotes } from '../screens/CreateNotes';
 import { EditBook } from '../screens/EditBook';
 import { EditNote } from '../screens/EditNote';
 import { CreateFolders } from '../screens/CreateFolders';
-
+import { ColorPickerScreen } from '../screens/ColorPickerScreen';
 
 export function AppRoutes() {
   return (
@@ -78,6 +78,12 @@ export function AppRoutes() {
         name="createfolders"
         component={CreateFolders}
       />
+
+      <Screen
+        name="colorpickerscreen"
+        component={ColorPickerScreen}
+      />
+
     </Navigator>
   )
 }
