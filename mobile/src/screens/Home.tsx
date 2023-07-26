@@ -20,7 +20,7 @@ export function Home() {
         <View className='w-full flex-row items-top justify-center px-8'>
           <Logo />
         </View>
-        <View className='flex-row flex-wrap px-1 justify-start'>
+        <View className='flex-row flex-wrap px-1 justify-center'>
 
           <BookButton />
           <BookButton />

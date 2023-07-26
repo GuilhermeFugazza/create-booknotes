@@ -23,13 +23,12 @@ export function CreateFolders() {
       <View className='border border-violet-600 mt-1'></View>
       <View className="flex justify-center items-center px-12 pt-12 pb-10">
 
-<<<<<<< HEAD
-                <TextInput
-                    className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
-                    placeholder="Escolha a cor da pasta"
-                    placeholderTextColor={colors.zinc[400]}
-                />
-=======
+        <TextInput
+          className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
+          placeholder="Escolha a cor da pasta"
+          placeholderTextColor={colors.zinc[400]}
+        />
+
         <TextInput
           className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
           placeholder="Nome..."
@@ -56,6 +55,6 @@ export function CreateFolders() {
   )
 
 }
->>>>>>> 0e4f46b757a315255ced91f3f969036291fb7c9f
+
 
 
