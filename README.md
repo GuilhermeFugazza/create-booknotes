@@ -1,2 +1,2 @@
-## Booknotes
-# by: Guilherme Fugazza & Beatriz Zanelatto
+# Booknotes
+## by: Guilherme Fugazza & Beatriz Zanelatto
