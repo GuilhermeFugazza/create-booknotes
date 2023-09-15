@@ -14,8 +14,6 @@ export function HeaderNote() {
 
       <BackButton />
 
-      <Logo />
-
       <View className="pl-14">
         <TouchableOpacity className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2">
           <MaterialIcons name="edit" size={28} color={colors.zinc[100]} />

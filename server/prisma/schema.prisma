@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Books {
+  id        String  @id @default(uuid())
+  title     String
+  author    String
+  pcompany  String
+  favorite  Boolean
+  //cover   
+
+  notes Notes[]
+  classifieds Classifieds[]
+
+  @@map("books")
+}
+
+model Folders {
+  id             String  @id @default(uuid())
+  name           String
+  description    String 
+
+  classifieds Classifieds[]
+
+  @@map("folders")
+}
+
+model Notes {
+  id        String  @id @default(uuid())
+  title     String
+  note      String
+  pages     String
+  id_book   String
+
+  books Books @relation(fields: [id_book], references: [id])
+
+  @@map("notes")
+}
+
+model Classifieds {
+  id        String  @id @default(uuid())
+
+  id_book String
+  id_folder String
+ 
+  books Books @relation(fields: [id_book], references: [id])
+  folders Folders @relation(fields: [id_folder], references: [id])
+
+  @@unique([id_book, id_folder])
+  @@map("classifieds")
+}

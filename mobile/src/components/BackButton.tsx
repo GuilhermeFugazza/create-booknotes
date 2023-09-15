@@ -8,7 +8,7 @@ export function BackButton() {
 
   return (
     <TouchableOpacity 
-      className="pr-16 border-4 border-transparent"
+      className="border-4 border-transparent"
       activeOpacity={0.7}
       onPress={goBack}
     >
