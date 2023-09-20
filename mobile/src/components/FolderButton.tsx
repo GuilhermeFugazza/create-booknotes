@@ -17,7 +17,7 @@ export function FolderButton() {
         />
         
 
-      <Text className="w-28 font-semibold text-base text-white mx-1 text-center">
+      <Text className="w-26 font-semibold text-base text-white mx-1 text-center">
         Nome da pasta
       </Text>
     </View>

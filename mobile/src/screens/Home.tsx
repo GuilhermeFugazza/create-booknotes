@@ -17,7 +17,7 @@ export function Home() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 50 }}
       >
-        <View className='w-full flex-row items-top justify-center px-8'>
+        <View className='w-full flex-row items-top justify-center px-4'>
           <Logo />
         </View>
         <View className='flex-row flex-wrap px-1 justify-center'>

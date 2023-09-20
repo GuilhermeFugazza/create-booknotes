@@ -12,7 +12,7 @@ export function BookButton() {
           onPress={() => navigate('book')}
         >
 
-          <Text className="font-semibold text-base text-white m-1">
+          <Text className="font-semibold text-base text-center text-white m-1">
             Capa do livro
           </Text>
         </TouchableOpacity>
