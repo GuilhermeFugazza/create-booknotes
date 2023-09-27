@@ -5,6 +5,9 @@ import colors from "tailwindcss/colors";
 import { FontAwesome } from '@expo/vector-icons'; 
 import { Header } from "../components/Header";
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import AutoExpandingTextInput from "../components/AutoExpandingTextInput";
+
+
 
 export function EditNote() {
 
@@ -21,19 +24,20 @@ export function EditNote() {
         <View className="flex justify-center items-center px-12 pt-12 pb-10">
 
           <TextInput
-            className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
+            className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500 py-3"
             placeholder="Título..."
             placeholderTextColor={colors.zinc[400]}
           />
 
           <TextInput
-            className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
+            className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500 py-3"
             placeholder="Alterar o número de páginas..."
             placeholderTextColor={colors.zinc[400]}
           />
 
-            <TextInput
-            className="w-full h-56 px-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
+         <TextInput
+            className="w-full h-60 px-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500 py-3"
+            textAlignVertical="top"
             placeholder="Texto..."
             multiline={true}
             placeholderTextColor={colors.zinc[400]}
