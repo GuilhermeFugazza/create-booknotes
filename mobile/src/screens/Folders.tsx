@@ -29,9 +29,9 @@ export function Folders() {
         </View>
       </ScrollView>
       <TouchableOpacity
-            className="w-1/2 h-14 flex-row items-center justify-center bg-green-600 rounded-md mt-6"
+            className="w-1/2 h-14 flex-row items-center justify-center bg-green-600 rounded-md mt-6 ml-4"
             activeOpacity={0.7}
-            onPress={() => navigate('createnotes')}
+            onPress={() => navigate('createfolders')}
           >
 
             <Text className="font-semibold text-base text-white mx-2">

@@ -18,10 +18,12 @@ export function NoteDark() {
       <View className="w-full flex-row items-top justify-start pl-8"> 
 
         <BackButton />
-
-        <Logo />
-
         <View className="pl-14">
+          <Logo />
+        </View>
+
+
+        <View className="pl-12">
           <TouchableOpacity 
             className="w-32 h-9 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
             onPress={() => navigate('editnote')}>

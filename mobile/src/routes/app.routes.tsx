@@ -16,7 +16,8 @@ import { EditNote } from '../screens/EditNote';
 import { CreateFolders } from '../screens/CreateFolders';
 import { EditFolder } from '../screens/EditFolder';
 import { AddBookInFolder } from '../screens/AddBookInFolder';
-import { ColorPickerScreen } from '../screens/ColorPickerScreen';
+
+
 
 export function AppRoutes() {
   return (
