@@ -4,7 +4,8 @@ import { Feather } from '@expo/vector-icons'
 import colors from "tailwindcss/colors";
 import { FontAwesome } from '@expo/vector-icons'; 
 import { Header } from "../components/Header";
-import { api } from "../lib/axios";
+import api from "../lib/axios";
+import { PrismaClient } from '@prisma/client'
 
 /*
 import { PrismaClient } from '@prisma/client';
@@ -55,13 +56,13 @@ export function New() {
   
   async function CreateNewBook() {
     try {
-      await api.post('/book', {title, pcompany, author})
+      await api.post('/books', {title, author, pcompany})
 
       setTitle('');
       setPcompany('');
       setAuthor('');
 
-      Alert.alert('Livro adicionado', 'Livro adicionado com sucesso!');
+      Alert.alert('Parabéns!', 'Livro adicionado com sucesso');
     } catch (error) {
       console.log(error)
       Alert.alert('Ops...', 'Não foi possível adicionar o livro');
