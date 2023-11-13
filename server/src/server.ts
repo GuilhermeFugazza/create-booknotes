@@ -8,6 +8,13 @@ const app = Fastify()
 app.register(cors)
 app.register(appRoutes)
 
+app.get('/books', async () => {
+  const books = await prisma.books.findMany()
+
+  return books
+})
+
+
 app.listen({
   port: 3333,
   host: '0.0.0.0'

@@ -50,22 +50,30 @@ export function BookButton() {
 */
 
 export function New() {
+  const [loading, setLoading] = useState(true);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [pcompany, setPcompany] = useState('');
   
   async function CreateNewBook() {
     try {
-      await api.post('/books', {title, author, pcompany})
-
-      setTitle('');
-      setPcompany('');
-      setAuthor('');
-
-      Alert.alert('Parabéns!', 'Livro adicionado com sucesso');
+      const response = await api.post('/book', { title, pcompany, author });
+  
+      if (response.status === 200) {
+        // Sucesso, limpe os campos e mostre uma mensagem de sucesso
+        setTitle('');
+        setPcompany('');
+        setAuthor('');
+        Alert.alert('Novo livro adicionado', 'Livro adicionado com sucesso!');
+      } else {
+        // A resposta não é 200 OK, trate o erro
+        console.error("Erro na resposta da API:", response.data);
+        Alert.alert('Ops', 'Não foi possível adicionar o livro');
+      }
     } catch (error) {
-      console.log(error)
-      Alert.alert('Ops...', 'Não foi possível adicionar o livro');
+      // Erro na solicitação, exiba o erro
+      console.error("Erro ao fazer a solicitação:", error);
+      Alert.alert('Ops', 'Não foi possível adicionar o livro');
     }
   }
 
@@ -85,6 +93,7 @@ export function New() {
             placeholder="Título..."
             placeholderTextColor={colors.zinc[400]}
             onChangeText={setTitle}
+            value={title}
           />
 
           <TextInput
@@ -92,6 +101,7 @@ export function New() {
             placeholder="Autor(a)..."
             placeholderTextColor={colors.zinc[400]}
             onChangeText={setAuthor}
+            value={author}
           />
 
           <TextInput
@@ -99,6 +109,7 @@ export function New() {
             placeholder="Editora..."
             placeholderTextColor={colors.zinc[400]}
             onChangeText={setPcompany}
+            value={pcompany}
           />
 
           <TouchableOpacity
