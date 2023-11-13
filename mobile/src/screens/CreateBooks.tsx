@@ -54,16 +54,18 @@ export function New() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [pcompany, setPcompany] = useState('');
+  const [favorite, setFavorite] = useState(false);
   
   async function CreateNewBook() {
     try {
-      const response = await api.post('/book', { title, pcompany, author });
+      const response = await api.post('/books', { title, pcompany, author, favorite });
   
       if (response.status === 200) {
         // Sucesso, limpe os campos e mostre uma mensagem de sucesso
         setTitle('');
         setPcompany('');
         setAuthor('');
+        setFavorite;
         Alert.alert('Novo livro adicionado', 'Livro adicionado com sucesso!');
       } else {
         // A resposta não é 200 OK, trate o erro

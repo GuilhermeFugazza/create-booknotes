@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { Text, View, ScrollView, Alert, Touchable, TouchableOpacity } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Logo from '../assets/booknoteswhite.svg';
@@ -6,10 +6,32 @@ import { Header } from '../components/Header';
 import { Loading } from '../components/Loading';
 import { BookButton } from '../components/BookButton';
 import { OptBar } from '../components/OptBar';
+import { api } from '../lib/axios';
 
 export function Home() {
-  const [loading] = useState(true)
+  const [loading, setLoading] = useState(true)
+  const [books, setBooks] = useState(null)
+
   const { navigate } = useNavigation()
+
+  async function fetchData() {
+    try {
+      setLoading(true);
+      const response = await api.get('/bookss')
+      setBooks(response.data)
+      console.log(response.data)
+
+    } catch (error) {
+      Alert.alert('Ops   :(', 'Não encontramos nenhum livro cadastrado')
+      console.log(error)
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <View className='flex-1 bg-background pt-16'>
