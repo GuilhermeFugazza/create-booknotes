@@ -19,7 +19,7 @@ export function Folders() {
         contentContainerStyle={{ paddingBottom: 50 }}
       >
 
-        <View className='flex-row flex-wrap justify-start'>
+        <View className='flex-row flex-wrap px-1 justify-start'>
 
           <FolderButton />
           <FolderButton />

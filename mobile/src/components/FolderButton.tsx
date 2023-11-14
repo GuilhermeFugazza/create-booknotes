@@ -7,7 +7,7 @@ export function FolderButton() {
   const { navigate } = useNavigation()
 
   return (
-    <View className= "pb-8">
+    <View className= "pb-6">
       <MaterialIcons 
         name="folder" 
         size={128} 

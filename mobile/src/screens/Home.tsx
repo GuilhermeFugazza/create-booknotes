@@ -8,30 +8,41 @@ import { BookButton } from '../components/BookButton';
 import { OptBar } from '../components/OptBar';
 import { api } from '../lib/axios';
 
+type BooksProps = Array<{
+  id: string;
+  title: string;
+  author: string;
+  pcompany: string;
+}>
+
 export function Home() {
   const [loading, setLoading] = useState(true)
-  const [books, setBooks] = useState(null)
+  const [books, setBooks] = useState<BooksProps | null>(null)
 
   const { navigate } = useNavigation()
 
   async function fetchData() {
     try {
       setLoading(true);
-      const response = await api.get('/bookss')
+      const response = await api.get('/books')
       setBooks(response.data)
-      console.log(response.data)
-
     } catch (error) {
-      Alert.alert('Ops   :(', 'Não encontramos nenhum livro cadastrado')
+      Alert.alert('Ops   :/', 'Não encontramos nenhum livro cadastrado')
       console.log(error)
     } finally {
       setLoading(false);
     }
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  useFocusEffect(useCallback(() => {
+    fetchData()
+  }, []))
+
+  if (loading) {
+    return (
+      <Loading />
+    );
+  }
 
   return (
     <View className='flex-1 bg-background pt-16'>
@@ -43,7 +54,6 @@ export function Home() {
           <Logo />
         </View>
         <View className='flex-row flex-wrap px-1 justify-center'>
-
           <BookButton />
           <BookButton />
           <BookButton />
@@ -57,11 +67,6 @@ export function Home() {
           <BookButton />
           <BookButton />
           <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-
         </View>
       </ScrollView>
       <OptBar />
