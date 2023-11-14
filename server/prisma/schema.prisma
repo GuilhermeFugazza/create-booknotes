@@ -16,7 +16,6 @@ model Books {
   title       String
   author      String
   pcompany    String
-  favorite    Boolean
   classifieds Classifieds[]
   notes       Notes[]
 

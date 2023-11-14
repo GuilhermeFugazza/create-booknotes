@@ -27,18 +27,16 @@ export async function appRoutes(app: FastifyInstance) {
     const createBook = z.object({
       title: z.string(),
       author: z.string(),
-      pcompany: z.string(),
-      favorite: z.boolean(),
+      pcompany: z.string()
     })
 
-    const { title, author, pcompany, favorite } = createBook.parse(request.body)
+    const { title, author, pcompany } = createBook.parse(request.body)
 
     await prisma.books.create({
       data: {
         title,
         author,
-        pcompany,
-        favorite,
+        pcompany
       }
     })
   })
