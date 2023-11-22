@@ -16,33 +16,28 @@ type BooksProps = Array<{
 }>
 
 export function Home() {
-  const [loading, setLoading] = useState(true)
-  const [books, setBooks] = useState<BooksProps | null>(null)
-
-  const { navigate } = useNavigation()
+  const { navigate } = useNavigation();
+  const [loading, setLoading] = useState(true);
+  const [books, setBooks] = useState<BooksProps | null>(null);
 
   async function fetchData() {
     try {
       setLoading(true);
-      const response = await api.get('/books')
-      setBooks(response.data)
+      const response = await api.get('/books');
+      setBooks(response.data);
+      console.log(response.data);
     } catch (error) {
-      Alert.alert('Ops   :/', 'Não encontramos nenhum livro cadastrado')
-      console.log(error)
+      Alert.alert('Ops :(', 'Não encontramos nenhum livro cadastrado');
+      console.log(error);
     } finally {
       setLoading(false);
     }
   }
 
-  useFocusEffect(useCallback(() => {
-    fetchData()
-  }, []))
+  useEffect(() => {
+    fetchData();
+  }, []); 
 
-  if (loading) {
-    return (
-      <Loading />
-    );
-  }
 
   return (
     <View className='flex-1 bg-background pt-16'>
@@ -53,21 +48,25 @@ export function Home() {
         <View className='w-full flex-row items-top justify-center px-8'>
           <Logo />
         </View>
-        <View className='flex-row flex-wrap px-1 justify-center'>
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
+        <View className='flex-row flex-wrap px-2 justify-center'>
+          {loading ? (
+            <Text style={{ color: 'white', textAlign: 'center' }}>Carregando...</Text>
+          ) : books?.length ? (
+            books.map((book) => (
+              <TouchableOpacity
+                key={book.id}
+                className="w-28 h-40 items-center justify-center bg-gray-700 rounded-lg px-2"
+                activeOpacity={0.7}
+                onPress={() => navigate('book', { bookId: book.id })}
+              >
+                <Text style={{ color: 'white', textAlign: 'center' }}>{book.title}</Text>
+              </TouchableOpacity>
+            ))
+          ) : (
+            <Text style={{ color: 'white', textAlign: 'center' }}>Nenhum livro encontrado</Text>
+          )}
         </View>
+
       </ScrollView>
       <OptBar />
     </View>

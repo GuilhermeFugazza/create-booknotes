@@ -30,7 +30,7 @@ export function New() {
       }
     } catch (error) {
       console.log(error)
-      Alert.alert('Ops', 'Não foi possível criar o novo hábito')
+      Alert.alert('Ops', 'Não foi possível criar o livro')
     }
   }
 

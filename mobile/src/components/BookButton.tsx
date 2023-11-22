@@ -1,6 +1,6 @@
 import { TouchableOpacity, Text, Alert } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from "../lib/axios";
 
 type BooksProps = Array<{
@@ -11,27 +11,27 @@ type BooksProps = Array<{
 }>
 
 export function BookButton() {
-
   const { navigate } = useNavigation();
-
-  const [loading, setLoading] = useState(true)
-  const [books, setBooks] = useState<BooksProps | null>(null)
+  const [loading, setLoading] = useState(true);
+  const [books, setBooks] = useState<BooksProps | null>(null);
 
   async function fetchData() {
     try {
       setLoading(true);
-      const response = await api.get('/books')
-      setBooks(response.data)
-      console.log(response.data)
-
+      const response = await api.get('/books');
+      setBooks(response.data);
+      console.log(response.data);
     } catch (error) {
-      Alert.alert('Ops   :(', 'Não encontramos nenhum livro cadastrado')
-      console.log(error)
+      Alert.alert('Ops :(', 'Não encontramos nenhum livro cadastrado');
+      console.log(error);
     } finally {
       setLoading(false);
     }
   }
 
+  useEffect(() => {
+    fetchData();
+  }, []); 
   return (
 
     <TouchableOpacity
@@ -39,9 +39,13 @@ export function BookButton() {
       activeOpacity={0.7}
       onPress={() => navigate('book')} // Substitua 'bookId' pelo ID real do livro
     >
-      <Text className="font-semibold text-center text-white m-1">
-        teste
-      </Text>
+      {loading ? (
+        <Text style={{ color: 'white', textAlign: 'center' }}>Carregando...</Text>
+      ) : books?.length ? (
+        <Text style={{ color: 'white', textAlign: 'center' }}>{books[1].title}</Text>
+      ) : (
+        <Text style={{ color: 'white', textAlign: 'center' }}>Nenhum livro encontrado</Text>
+      )}
     </TouchableOpacity>
   )
 }

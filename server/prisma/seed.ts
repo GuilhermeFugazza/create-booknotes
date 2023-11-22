@@ -17,7 +17,7 @@ async function main() {
                 title: "É assim que acaba",
                 author: "Collen Hoover",
                 pcompany: "Galera",
-                favorite: true
+
             }
         }),
 
@@ -27,7 +27,6 @@ async function main() {
                 title: "De sangue e cinzas",
                 author: "Jennifer L. Armentrout",
                 pcompany: "Galera",
-                favorite: true
             }
         })
     ])
