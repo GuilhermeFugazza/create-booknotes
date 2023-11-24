@@ -4,7 +4,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 
 import { Home } from '../screens/Home';
 import { New } from '../screens/CreateBooks';
-import { Booknotes } from '../screens/Book';
+import { Book } from '../screens/Book';
 import { FavBooks } from '../screens/FavBooks';
 import { Folders } from '../screens/Folders';
 import { Folder } from '../screens/Folder';
@@ -34,7 +34,7 @@ export function AppRoutes() {
 
       <Screen
         name="book"
-        component={Booknotes}
+        component={Book}
       />
 
       <Screen

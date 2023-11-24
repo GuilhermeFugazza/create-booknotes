@@ -20,7 +20,7 @@ export function Home() {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState<BooksProps | null>(null);
 
-  async function fetchData() {
+  const fetchData = async () => {
     try {
       setLoading(true);
       const response = await api.get('/books');
@@ -32,15 +32,17 @@ export function Home() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
-  useEffect(() => {
-    fetchData();
-  }, []); 
+  useFocusEffect(
+    useCallback(() => {
+      fetchData();
+    }, [])
+  );
 
 
   return (
-    <View className='flex-1 bg-background pt-16'>
+    <View className='flex-1 bg-background pt-16 justify-center'>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 50 }}
@@ -48,14 +50,14 @@ export function Home() {
         <View className='w-full flex-row items-top justify-center px-8'>
           <Logo />
         </View>
-        <View className='flex-row flex-wrap px-2 justify-center'>
+        <View className='flex-row flex-wrap px-1 justify-start'>
           {loading ? (
             <Text style={{ color: 'white', textAlign: 'center' }}>Carregando...</Text>
           ) : books?.length ? (
             books.map((book) => (
               <TouchableOpacity
                 key={book.id}
-                className="w-28 h-40 items-center justify-center bg-gray-700 rounded-lg px-2"
+                className="w-28 h-40 items-center justify-center bg-gray-700 m-2 rounded-lg px-2"
                 activeOpacity={0.7}
                 onPress={() => navigate('book', { bookId: book.id })}
               >

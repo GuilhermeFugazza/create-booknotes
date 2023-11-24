@@ -1,12 +1,43 @@
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text, Alert } from "react-native";
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import colors from "tailwindcss/colors";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { AntDesign } from '@expo/vector-icons';
+import { useCallback, useState } from "react";
+import { api } from '../lib/axios';
+
+type BooksProps = Array<{
+  id: string;
+  title: string;
+  author: string;
+  pcompany: string;
+}>
 
 export function HeaderBook() {
   const { goBack } = useNavigation()
-  const { navigate } = useNavigation()
+  const { navigate } = useNavigation();
+  const [loading, setLoading] = useState(true);
+  const [books, setBooks] = useState<BooksProps | null>(null);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await api.get('/books');
+      setBooks(response.data);
+      console.log(response.data);
+    } catch (error) {
+      Alert.alert('Ops :(', 'Não encontramos nenhum livro cadastrado');
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchData();
+    }, [])
+  );
 
   return (
     <View className="w-full flex-row items-top justify-start px-8 ">
@@ -42,11 +73,11 @@ export function HeaderBook() {
         </View>
 
         <Text className="font-semibold border-b py-1 border-violet-600 text-base text-white text-center">
-          É assim que acaba
+          Titulo  
         </Text>
 
         <Text className="font text-sm pt-1 text-violet-800 text-center">
-          Collen Hoover
+          Autor
         </Text>
 
       </View>
