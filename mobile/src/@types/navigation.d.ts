@@ -4,12 +4,12 @@ export declare global {
       home: string;
       new: string;
       book: string;
-      editbook: undefined;
-      addbookinfolder: undefined;
+      editbook: string;
+      addbookinfolder: string;
       noted: string;
-      createnotes: undefined;
-      editnote: undefined;
-      notew: undefined;
+      createnotes: string;
+      editnote: string;
+      notew: string;
     }
   }
 }

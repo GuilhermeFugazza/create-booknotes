@@ -21,7 +21,7 @@ type Note = {
 
 export function NoteDark({ route }: BookRouteProps) {
   const { goBack, navigate } = useNavigation();
-  const { bookId } = route.params;
+  const bookId = '64ec024e-5977-49a6-8b10-d4ac8da70925';
 
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState<Note>({

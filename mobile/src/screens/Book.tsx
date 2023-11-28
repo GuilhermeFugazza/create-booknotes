@@ -150,7 +150,7 @@ export function Book({ route }: BookRouteProps) {
           <TouchableOpacity
             className="w-1/2 h-14 flex-row items-center justify-center bg-green-600 rounded-md mt-6"
             activeOpacity={0.7}
-            onPress={() => navigate('createnotes')}
+            onPress={() => navigate('createnotes', { bookId: book.id })}
           >
 
             <Text className="font-semibold text-base text-white mx-2">

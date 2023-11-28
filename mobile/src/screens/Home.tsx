@@ -59,7 +59,13 @@ export function Home() {
                 key={book.id}
                 className="w-28 h-40 items-center justify-center bg-gray-700 m-2 rounded-lg px-2"
                 activeOpacity={0.7}
-                onPress={() => navigate('book', { bookId: book.id })}
+                onPress={() => {
+                  // Garanta que book.id está definido antes de navegar
+                  if (book.id) {
+                    console.log(book.id)
+                    navigate('book', { bookId: book.id });
+                  }
+                }}
               >
                 <Text style={{ color: 'white', textAlign: 'center' }}>{book.title}</Text>
               </TouchableOpacity>

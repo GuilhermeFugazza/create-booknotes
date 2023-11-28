@@ -1,22 +1,45 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import colors from "tailwindcss/colors";
 import { Header } from "../components/Header";
-import { RouteProp, useNavigation } from '@react-navigation/native';
+import { RouteProp, useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import { api } from "../lib/axios";
 
-type BookRouteProps = {
-  route: RouteProp<{ params: { bookId: string } }, 'params'>;
-};
 
-
-export function CreateNotes({ route }: BookRouteProps) {
+export function CreateNotes() {
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
   const [pages, setPages] = useState('');
   const navigation = useNavigation();
-  const { bookId } = route.params ?? {};
+  const route = useRoute();
+
+  const bookId = '64ec024e-5977-49a6-8b10-d4ac8da70925';
+
+
+  const [loading, setLoading] = useState(true);
+  const [book, setBook] = useState({
+    id: '',
+    title: '',
+    author: '',
+    pcompany: ''
+  });
+
+  const fetchData = async () => {
+    try {
+
+      // Obtém detalhes do livro
+      const bookResponse = await api.get(`/books/${bookId}`);
+      setBook(bookResponse.data);
+
+      console.log(bookResponse.data);
+    } catch (error) {
+      Alert.alert('Ops :(', 'Não foi possível carregar as informações do livro');
+      console.log(error);''
+    } finally {
+      setLoading(false);
+    }
+  };
 
   async function createNewNote() {
     try {
@@ -26,18 +49,29 @@ export function CreateNotes({ route }: BookRouteProps) {
         setTitle('');
         setNote('');
         setPages('');
+
         Alert.alert('Nova anotação ;)', 'Anotação adicionada com sucesso!');
+        console.log('bookId:', bookId);
+
         // Navegue para a tela desejada após adicionar a nota
-        navigation.navigate('book'); // Substitua 'Book' pelo nome da tela para onde você deseja navegar
+        navigation.navigate('book');
       } else {
         console.error("Erro na resposta da API:", response.data);
         Alert.alert('Ops :(', 'Não foi possível adicionar a anotação');
+        console.log('bookId:', bookId);
       }
     } catch (error) {
       console.log(error);
       Alert.alert('Ops', 'Não foi possível criar a anotação');
+      console.log('bookId:', bookId);
     }
   }
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchData();
+    }, [])
+  );
 
     return (
         <View className="flex-1 bg-background pt-16 pb-10">
