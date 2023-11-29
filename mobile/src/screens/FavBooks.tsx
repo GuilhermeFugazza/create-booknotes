@@ -28,19 +28,11 @@ export function FavBooks() {
         contentContainerStyle={{ paddingBottom: 50 }}
       >
 
-        <View className='flex-row flex-wrap px-1 justify-center'>
-
-          <TouchableOpacity onPress={() => navigate('new')} />
-
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-
+        <View className='flex-row flex-wrap px-1 justify-center pt-48'>
+          <Text>
+            Nenhum livro favoritado...
+          </Text>
         </View>
-
       </ScrollView>
       <OptBar />
     </View>

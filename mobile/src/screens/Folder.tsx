@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Text, View, ScrollView, Alert, Touchable, TouchableOpacity } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
@@ -14,7 +14,7 @@ export function Folder() {
       <Header />
 
       <Text className="w-full font-semibold text-lg text-white mx-1 text-center">
-        Nome da pasta
+        
       </Text>
       <View className='border-t border-violet-600 mt-1'></View>
       <ScrollView
@@ -24,23 +24,7 @@ export function Folder() {
 
         <View className='flex-row flex-wrap px-1 mt-8 justify-start'>
 
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
-          <BookButton />
+          <Text className='flex-row px-36 pt-52 w-100 h-100'>Nenhum livro encontrado!</Text>
 
         </View>
       </ScrollView>

@@ -6,11 +6,34 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Header } from "../components/Header";
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import ColorPickerComponent from '../components/ColorPicker';
+import { api } from "../lib/axios";
 
 
 export function CreateFolders() {
-
-  const { navigate } = useNavigation()
+    const { navigate } = useNavigation();
+    const [name, setName] = useState('');
+    const [folders, setFolders] = useState({
+      id: '',
+      name:''
+    });
+  
+    async function CreateNewFolder() {
+      try {
+        const response = await api.post(`/folders`, { name });
+  
+        if (response.status === 200) {
+          setName('');
+          Alert.alert('Nova pasta criada ;)', 'Pasta criada com sucesso!');
+        } else {
+          console.error("Erro na resposta da API:", response.data);
+          Alert.alert('Ops :(', 'Não foi possível criar a pasta');
+        }
+      } catch (error) {
+        console.log(error);
+        Alert.alert('Ops', 'Não foi possível criar a anotação');
+      }
+    }
+  
 
   return (
 
@@ -29,17 +52,15 @@ export function CreateFolders() {
           className="w-full h-12 pl-4 rounded-lg mt-6 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500"
           placeholder="Nome..."
           placeholderTextColor={colors.zinc[400]}
+          value={name}
+          onChangeText={(text) => setName(text)}
         />
-        
-        <View className="flex-1 justify-center items-center mt-20">
-            <ColorPickerComponent />
-        </View>
 
 
         <TouchableOpacity
           className="w-52 h-14 flex-row items-center justify-center bg-green-500 rounded-md mt-16"
           activeOpacity={0.7}
-        //onPress={CreateNewBook}
+        onPress={CreateNewFolder}
         >
           <Feather
             name="check"

@@ -49,21 +49,14 @@ export function CreateNotes() {
         setTitle('');
         setNote('');
         setPages('');
-
-        Alert.alert('Nova anotação ;)', 'Anotação adicionada com sucesso!');
-        console.log('bookId:', bookId);
-
-        // Navegue para a tela desejada após adicionar a nota
-        navigation.navigate('book');
+        Alert.alert('Sucesso ;)', 'Anotação criada com sucesso!');
       } else {
         console.error("Erro na resposta da API:", response.data);
         Alert.alert('Ops :(', 'Não foi possível adicionar a anotação');
-        console.log('bookId:', bookId);
       }
     } catch (error) {
       console.log(error);
       Alert.alert('Ops', 'Não foi possível criar a anotação');
-      console.log('bookId:', bookId);
     }
   }
 
@@ -115,7 +108,6 @@ export function CreateNotes() {
           >
             <Feather
               name="check"
-              size={20}
               color={colors.white}
             />
 

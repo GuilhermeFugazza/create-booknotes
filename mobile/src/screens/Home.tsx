@@ -52,7 +52,7 @@ export function Home() {
         </View>
         <View className='flex-row flex-wrap px-1 justify-start'>
           {loading ? (
-            <Text style={{ color: 'white', textAlign: 'center' }}>Carregando...</Text>
+            <Text className='flex-row px-36 pt-52 w-100 h-100'>Carregando...</Text>
           ) : books?.length ? (
             books.map((book) => (
               <TouchableOpacity

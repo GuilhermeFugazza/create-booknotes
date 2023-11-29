@@ -6,11 +6,6 @@ import colors from "tailwindcss/colors";
 import { AntDesign } from '@expo/vector-icons';
 import { api } from '../lib/axios';
 
-// Adicione o tipo para as propriedades da rota
-type BookRouteProps = {
-  route: RouteProp<{ params: { bookId: string } }, 'params'>;
-};
-
 type Note = {
   id: string;
   title: string;
@@ -18,9 +13,10 @@ type Note = {
   note: string;
 };
 
-export function Book({ route }: BookRouteProps) {
+export function Book() {
   const { goBack, navigate } = useNavigation();
-  const { bookId } = route.params;
+  const bookId = '64ec024e-5977-49a6-8b10-d4ac8da70925'
+  const noteId = 'fa1bc947-a005-4061-a798-6dec00ccabaa'
 
   const [loading, setLoading] = useState(true);
   const [book, setBook] = useState({
@@ -45,10 +41,8 @@ export function Book({ route }: BookRouteProps) {
       const notesResponse = await api.get<Note[]>(`/books/${bookId}/notes`);
       setNotes(notesResponse.data);
 
-      console.log(bookResponse.data);
-      console.log(notesResponse.data);
     } catch (error) {
-      Alert.alert('Ops :(', 'Não foi possível carregar as informações do livro');
+      //Alert.alert('Ops :(', 'Não foi possível carregar as informações do livro');
       console.log(error);
     } finally {
       setLoading(false);
@@ -92,7 +86,7 @@ export function Book({ route }: BookRouteProps) {
 
                 <TouchableOpacity className="w-16 h-8 items-start pl-2 justify-center bg-violet-600 opacity-60 rounded-l-lg m-2"
                   activeOpacity={0.7}
-                  onPress={() => navigate('addbookinfolder')}
+                  onPress={() => navigate('folders')}
                 >
                   <AntDesign name="addfolder" size={24} color={colors.zinc[100]} />
                 </TouchableOpacity>
@@ -129,7 +123,7 @@ export function Book({ route }: BookRouteProps) {
             <TouchableOpacity
               key={note.id}
               activeOpacity={0.7}
-              onPress={() => navigate('noted', note.id )}
+              onPress={() => navigate('noted', noteId)}
               className="w-full h-50 flex-column items-center justify-center bg-zinc-800 border rounded-2xl mt-6"
             >
               <View className="w-full flex-row border-b-4 border-background mt-2 pb-2 mx-4 justify-between">

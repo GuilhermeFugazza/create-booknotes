@@ -25,7 +25,6 @@ model Books {
 model Folders {
   id          String        @id @default(uuid())
   name        String
-  description String
   classifieds Classifieds[]
 
   @@map("folders")

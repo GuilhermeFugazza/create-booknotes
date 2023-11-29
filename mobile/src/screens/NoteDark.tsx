@@ -8,10 +8,6 @@ import { Feather, MaterialIcons } from '@expo/vector-icons';
 import { api } from '../lib/axios';
 
 
-type BookRouteProps = {
-  route: RouteProp<{ params: { bookId: string } }, 'params'>;
-};
-
 type Note = {
   id: string;
   title: string;
@@ -19,9 +15,10 @@ type Note = {
   note: string;
 };
 
-export function NoteDark({ route }: BookRouteProps) {
+export function NoteDark() {
   const { goBack, navigate } = useNavigation();
   const bookId = '64ec024e-5977-49a6-8b10-d4ac8da70925';
+  const noteId = 'fa1bc947-a005-4061-a798-6dec00ccabaa'
 
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState<Note>({
@@ -39,12 +36,10 @@ export function NoteDark({ route }: BookRouteProps) {
       setLoading(true);
 
       // Obtém notas do livro
-      const notesResponse = await api.get<Note[]>(`/books/${bookId}/notes`);
+      const notesResponse = await api.get(`/books/64ec024e-5977-49a6-8b10-d4ac8da70925/notes/fa1bc947-a005-4061-a798-6dec00ccabaa`);
       setNotes(notesResponse.data);
-
-      console.log(notesResponse.data);
     } catch (error) {
-      Alert.alert('Ops :(', 'Não foi possível carregar as informações do livro');
+      //Alert.alert('Ops :(', 'Não foi possível carregar as informações da anotação');
       console.log(error);
     } finally {
       setLoading(false);
@@ -82,13 +77,12 @@ export function NoteDark({ route }: BookRouteProps) {
         </View>
       </View>
 
-
       <View className="flex-row">
         <Text className="w-1/2 font-medium text-base text-white mx-8 mb-2 text-left">
-          {note.title}
+          Rolando abaixo
         </Text>
         <Text className="w-1/2 font-bold text-base text-violet-500 mx-8 mb-2 text-left">
-          Pg. {note.pages}
+          Pg. 250 - 251{note.pages}
         </Text>
       </View>
 
@@ -98,7 +92,7 @@ export function NoteDark({ route }: BookRouteProps) {
         contentContainerStyle={{ paddingBottom: 50 }}
       >
         <Text className="font-semibold text-base text-white m-8 text-justify ">
-          {notes.note}
+          Você caiu da escada — diz ele. — Está machucada.
         </Text>
       </ScrollView>
     </View>

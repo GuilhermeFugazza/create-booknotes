@@ -90,10 +90,10 @@ export function NoteWhite({ route }: BookRouteProps) {
 
       <View className="flex-row">
         <Text className="w-1/2 font-medium text-base text-background mx-8 mb-2 text-left">
-          Cena linda
+          Cena liRolando abaixo
         </Text>
         <Text className="w-1/2 font-bold text-base text-violet-500 mx-8 mb-2 text-left">
-          Pg. xx - xx
+          Pg. 250 - 251
         </Text>
       </View>
 
@@ -103,8 +103,8 @@ export function NoteWhite({ route }: BookRouteProps) {
         contentContainerStyle={{ paddingBottom: 50 }}
       >
         <Text className="font-semibold text-base text-background m-8 text-justify ">
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
-            </Text>
+          Você caiu da escada — diz ele. — Está machucada.            
+        </Text>
       </ScrollView>
     </View>
   )

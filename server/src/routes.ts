@@ -79,16 +79,14 @@ export async function appRoutes(app: FastifyInstance) {
 
   app.post('/folders', async (request) => {
     const createFolder = z.object({
-      name: z.string(),
-      description: z.string(),
+      name: z.string()
     });
 
-    const { name, description } = createFolder.parse(request.body);
+    const { name } = createFolder.parse(request.body);
 
     await prisma.folders.create({
       data: {
-        name,
-        description,
+        name
       },
     });
   });
